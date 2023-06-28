@@ -3,10 +3,10 @@
 
 hour=0
 
-while [ $hour -le 12 ]
+while [ $hour -lt 12 ]
 do
 	min=1
-	echo Hour:$hour
+	echo Hour: $hour
 	while [ $min -lt 60 ]
 	do
 		echo $min
