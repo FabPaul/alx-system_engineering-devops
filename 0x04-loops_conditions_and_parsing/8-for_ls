@@ -3,5 +3,5 @@
 
 for content in *
 do
-	echo "$content"
+	echo "$content" | cut -d '-' -f2
 done
