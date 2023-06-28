@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Bash script that displays the content of a current directory in a list format
+
+for content in *
+do
+	echo "$content"
+done
