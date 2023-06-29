@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Bash script that displyas just the username, usr id and "pwd" of /etc/passwd
+
+current_file="/etc/passwd"
+
+while IFS= read -r each_line
+do
+	echo "$each_line" | cut -d ':' -f1,3,6
+done < "$current_file"
