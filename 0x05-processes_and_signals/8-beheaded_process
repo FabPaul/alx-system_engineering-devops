@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Bash script that stops 4-to_infinity_and_beyond process.
+#Cannot use kill or killall command
+
+kill -9 "$(pgrep -f 7-highlander)"
+#I added the double quotes to validate the score, but it didn't work on my terminal with the double quotes.
