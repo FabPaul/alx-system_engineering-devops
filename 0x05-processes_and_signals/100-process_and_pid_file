@@ -8,9 +8,9 @@
 
 echo $$ >> /var/run/myscript.pid
 
-trap "I hate the kill command" TERM
+trap "echo 'I hate the kill command'" TERM
 trap "rm -rf /var/run/myscript.pid ; exit" TERM
-trap "Y U no love me?!" INT
+trap "echo 'Y U no love me?!'" INT
 trap "rm -rf /var/run/myscript.pid ; exit" QUIT
 
 while true
