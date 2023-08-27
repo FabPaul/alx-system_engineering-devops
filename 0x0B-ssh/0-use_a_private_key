@@ -3,4 +3,4 @@
 # Bash script that uses ssh to connect to my server usinf private key
 # Located at ~/.ssh/school with the user "ubuntu"
 
-ssh -i ~/.ssh/school ubuntu@100.25.37.100
+ssh ubuntu@100.25.37.100 -i ~/.ssh/school
