@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-#Bash script that uses ssh to connect to my server usinf private key
+# Bash script that uses ssh to connect to my server usinf private key
+# Located at ~/.ssh/school with the user "ubuntu"
 
-ssh -i ~/.ssh/school ubuntu@100.25.132.82
+ssh -i ~/.ssh/school ubuntu@100.25.37.100
