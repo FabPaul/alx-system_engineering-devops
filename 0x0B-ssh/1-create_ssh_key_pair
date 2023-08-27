@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script creates a pair of SSH keys.
+# Private must be called school
+# must be of size 4096 bits
+# passphrase "betty"
+
+ssh-keygen -t rsa -b 4096 -P betty -f school
