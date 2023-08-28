@@ -3,18 +3,16 @@
 
 if [ $# -lt 3 ]; then
 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-	exit 1
 fi
 filePath="$1"
 serverIp="$2"
 scpUserName="$3"
 sshPrivateKey="$4"
 
-if [ $# -lt 4 ]; then
-       scp -o StrictHostKeyChecking=no "$filePath" "$scpUserName@$serverIp":~/
+ssh_option="-o StrictHostKeyChecking=no"
 
-elif [ -n "$sshPrivateKey" ]; then
-	ssh="$ssh -i $sshPrivateKey"
+if [ -n "$sshPrivateKey" ]; then
+    ssh_option="$ssh_option -i $sshPrivateKey"
 fi
 
-scp "$ssh" "$filePath" "$scpUserName@$serverIp:~/"
+scp "$ssh_option" "$filePath" "$scpUserName@$serverIp":~/
