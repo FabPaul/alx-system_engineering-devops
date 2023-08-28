@@ -10,9 +10,10 @@ serverIp="$2"
 scpUserName="$3"
 sshPrivateKey="$4"
 
-ssh="-o StrictHostKeyChecking=no"
+if [ $# -lt 4 ]; then
+       scp -o StrictHostKeyChecking=no "$filePath" "$scpUserName@$serverIp":~/
 
-if [ -n "$sshPrivateKey" ]; then
+elif [ -n "$sshPrivateKey" ]; then
 	ssh="$ssh -i $sshPrivateKey"
 fi
 
