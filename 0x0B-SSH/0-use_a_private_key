@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-#Bash script that uses ssh to connect to my server usinf private key with ubuntu user
-
-ssh -i ~/.ssh/school ubuntu@100.25.132.82
