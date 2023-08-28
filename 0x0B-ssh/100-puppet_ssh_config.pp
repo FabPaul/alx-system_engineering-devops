@@ -1,10 +1,7 @@
 # Puppet client configuration file (w/Puppet)
 
-file { 'etc/ssh/ssh_config':
-  ensure  = file,
-  content => '
-Host *
-    IdentityFile ~/.ssh/school
-    PasswordAuthentication no
-',
+file_line {'Password authentication and File ID':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '	PasswordAuthentication no\n	IdentityFile ~/.ssh/school',
 }
