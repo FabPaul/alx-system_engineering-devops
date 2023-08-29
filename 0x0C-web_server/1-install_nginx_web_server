@@ -3,7 +3,6 @@
 
 Sudo apt-get update
 sudo apt-get -y install nginx
-sudo ufw enable
-sudo ufw allow 80/tcp
+sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 sudo service nginx start
