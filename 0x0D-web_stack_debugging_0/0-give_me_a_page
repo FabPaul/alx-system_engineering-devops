@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # The code I used to debug the task
-
-sudo service apache2 start
+docker run -p 8080:80 -d -it holbertonschool/265-0
+docker exec -it 9d87e51a38bb487a85a42812efa09a8812c5c98069aa5d0f7a22a1085e9bcd72 /bin/sh
+service apache2 start
+echo "Hello Holberton" > /var/www/html/index.html
+service apache2 restart
+exit
