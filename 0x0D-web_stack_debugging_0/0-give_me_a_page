@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# The code I used to debug the task
+
+sudo service apache2 start
