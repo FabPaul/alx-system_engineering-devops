@@ -1,16 +1,3 @@
 #!/usr/bin/env bash
 # Script that lists all the commands i used
-sudo nano /etc/containers/registries.conf
-docker pull holbertonschool/265-0:latest
-docker exec -it 9d87e51a38bb487a85a42812efa09a8812c5c98069aa5d0f7a22a1085e9bcd72 /bin/sh
-service apache2 status
 service apache2 start
-cat /etc/apache2/sites-available/000-default.conf
-ls /var/www/html
-echo "Hello Holberton" > /var/www/html/index.html
-service apache2 restart
-wget -O - http://localhost:80
-apt-get update
-apt-get install -y curl
-curl http://localhost:80
-exit
