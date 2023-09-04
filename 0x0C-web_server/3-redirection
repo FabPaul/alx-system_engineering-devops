@@ -3,7 +3,7 @@
 
 sudo apt-get update
 sudo apt-get install -y nginx
-# sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 echo "Hello World!" | sudo tee /var/www/html/index.html
 string_to_replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/twitter.com\/FabPaul1 permanent;"
 sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
