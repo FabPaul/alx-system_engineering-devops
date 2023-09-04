@@ -19,11 +19,11 @@ echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 # COnfigure nginx for redirection and add a header
 string_to_replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/twitter.com\/FabPaul1 permanent;\n\tadd_header X-Served-By \$hostname;"
-sudo sed -i "s/server_name _;/$string_to_replace/" etc/nginx/sites-enabled/default
+sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
 
 # Set up nginx to use custom 404
 redirect="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var/www/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s/listen 80 default_server;/$redirect/" etc/nginx/sites-enabled/default
+sudo sed -i "s/listen 80 default_server;/$redirect/" /etc/nginx/sites-enabled/default
 
 # Restart the nginx server
 sudo service nginx restart
