@@ -10,6 +10,12 @@ package { 'nginx':
   ensure => 'present',
 }
 
+service { 'nginx':
+  ensure    => 'running',
+  enable    => true,
+  subscribe => File_line['http_header'],
+}
+
 # Create a file_line resource to add the custom httpheader to nginx
 file_line { 'http_header':
   path  => '/etc/nginx/nginx.conf',
@@ -18,7 +24,7 @@ file_line { 'http_header':
 }
 
 # Restart nginx
-exec { 'execute':
-  command => '/usr/sbin/service nginx restart',
-  require => Package['nginx'],
-}
+#exec { 'execute':
+#  command => '/usr/sbin/service nginx restart',
+#  require => Package['nginx'],
+#}
