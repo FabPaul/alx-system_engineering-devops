@@ -7,6 +7,5 @@
 #}
 # Then for the main task, i created a copy of the sites-available file to sites-enabled, using symbolic links(-s)
 # the -f flag is to force the creation of the symlink even if it already exists, overwriting it if necessary.
-
 sudo -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
