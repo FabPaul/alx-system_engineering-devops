@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that will display information about subdomains.
+
+dns_config() {
+	result=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	output="The subdomain $2 is a $(echo $result | awk '{print $1}') record and points to $(echo $result | awk '{print $2}')"
+	echo "$output"
+}
+
+domain="$1"
+subdomain="$2"
+
+if [ "$#" == 1 ]; then
+    dns_config "$domain" "www"
+    dns_config "$domain" "lb-01"
+    dns_config "$domain" "web-01"
+    dns_config "$domain" "web-02"
+elif [ "$#" == 2 ]; then
+    dns_config "$domain" "$subdomain"
+fi
