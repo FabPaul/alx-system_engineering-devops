@@ -11,12 +11,12 @@ def number_of_subscribers(subreddit):
     base_url = "https://www.reddit.com/"
     user_url = f"{base_url}/r/{subreddit}/about.json"
 
-    user_agent = {"user-agent": "Python/requests"}
+    user_agent = {"User-Agent": "Python/requests"}
 
     response = requests.get(user_url, headers=user_agent,
                            allow_redirects=False)
 
-    if not subreddit or not isinstance(subreddit, str):
+    if response.status_code in [301, 302, 400, 404]:
         return 0
 
     return response.json().get("data").get("subscribers")
