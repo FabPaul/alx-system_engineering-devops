@@ -18,3 +18,5 @@ def number_of_subscribers(subreddit):
 
     if response.status_code in [301, 302, 400, 404]:
         return 0
+
+    return response.json().get("data").get("subscribers")
