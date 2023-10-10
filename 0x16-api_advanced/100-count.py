@@ -11,8 +11,8 @@ def count_words(subreddit, word_list, params={}):
     and prints a sorted count of given keywords (case-insensitive, delimited
     by spaces. Javascript should count as javascript, but java should not).
     """
-    a = {k: 0 for k in word_list}
-    words = len(a)
+    word_count = {word: 0 for word in word_list}
+    total_words = len(word_count)
     limits = {}
 
     base_url = "https://www.reddit.com/"
@@ -28,8 +28,8 @@ def count_words(subreddit, word_list, params={}):
         response = response.json()
         hot_articles = response.get("data").get("children")
 
-        for i in range(len(children)):
-            titles = children[i].get("data").get("title").split()
+        for article in range(len(children)):
+            titles = children[article].get("data").get("title").split()
             print(f"title:{titles}")
             after = response.get("data").get("after")
 
