@@ -1,0 +1,23 @@
+server {
+	listen 80;
+    		server_name localhost;
+
+    	location /airbnb-onepage/ {
+        	proxy_pass http://localhost:5000/;
+        	include proxy_params;
+    	}
+
+    	location /airbnb-dynamic/number_odd_or_even/ {
+        	proxy_pass http://localhost:5001/number_odd_or_even/;
+        	include proxy_params;
+    	}
+
+    	location /api/ {
+        	proxy_pass http://localhost:5002/;
+        	include proxy_params;
+    	}
+
+    	location / {
+        	return 404;
+    	}
+}
